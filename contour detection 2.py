@@ -1,6 +1,8 @@
 import numpy as np
 import cv2 as cv
 
+# This is a test to see if online compatibility is valid
+
 img = cv.imread('frame_2.jpg', cv.IMREAD_GRAYSCALE)
 assert img is not None, "file could not be read, check with os.path.exists()"
 ret, thresh = cv.threshold(img, 127, 255, 0)

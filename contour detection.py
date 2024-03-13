@@ -24,6 +24,9 @@ thresh = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)[1]
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
 
+print("cnts length: ", len(cnts))
+print("cnts: ", cnts)
+
 for c in cnts:
 	# compute the center of the contour, then detect the name of the
 	# shape using only the contour
