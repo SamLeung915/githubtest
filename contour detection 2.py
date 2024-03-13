@@ -11,6 +11,7 @@ contours, hierarchy = cv.findContours(thresh, 1, 2)
 
 cnt = contours[0]
 M = cv.moments(cnt)
+print("cnt length: ", len(contours))
 print("cnt: ", cnt)
 print("M: ", M)
 
