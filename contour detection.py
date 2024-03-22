@@ -10,7 +10,10 @@ import imutils
 
 # load the image and resize it to a smaller factor so that
 # the shapes can be approximated better
-image = cv2.imread("test_frame_2_13.03.jpg")
+image = cv2.imread("test_frame_3_20.03.jpg")
+# image = cv2.imread("test_frame_13.03.jpg")
+# image = cv2.imread("test_frame_2_13.03.jpg")
+# image = cv2.imread("frame_2.jpg")
 resized = imutils.resize(image, width=300)
 ratio = image.shape[0] / float(resized.shape[0])
 
@@ -42,6 +45,8 @@ for c in cnts:
 	c *= ratio
 	c = c.astype("int")
 	cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
+	perimeter = cv2.arcLength(c,True)
+	print("This is the perimeter of the print: ", perimeter)
 
 	# show the output image
 	cv2.imshow("Image", image)
