@@ -10,32 +10,32 @@ import imutils
 
 # load the image and resize it to a smaller factor so that
 # the shapes can be approximated better
-image = cv2.imread("test_frame_3_20.03.jpg")
-# image = cv2.imread("test_frame_13.03.jpg")
-# image = cv2.imread("test_frame_2_13.03.jpg")
-# image = cv2.imread("frame_2.jpg")
-cv2.imshow("OG", image)
-cv2.waitKey(0)
+image4 = cv2.imread("test_frame_3_20.03.jpg")
+image3 = cv2.imread("test_frame_13.03.jpg")
+image2 = cv2.imread("test_frame_2_13.03.jpg")
+image1 = cv2.imread("frame_2.jpg")
+cv2.imshow("OG", image4)
+cv2.waitKey(3000)
 
-resized = imutils.resize(image, width=300)
+resized = imutils.resize(image4, width=300)
 cv2.imshow("Resized", resized)
-cv2.waitKey(0)
-ratio = image.shape[0] / float(resized.shape[0])
+cv2.waitKey(3000)
+ratio = image4.shape[0] / float(resized.shape[0])
 
 # convert the resized image to grayscale, blur it slightly,
 # and threshold it
 gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
 cv2.imshow("Grayed", gray)
-cv2.waitKey(0)
+cv2.waitKey(3000)
 blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 #thresh = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)[1]
                                 #This is a threshold value i.e, any pixel that has colour value above this value will be made into the specified pixel colour (value to the right)
 cv2.imshow("Blurred", blurred)
-cv2.waitKey(0)
+cv2.waitKey(3000)
 
 thresh = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY)[1] #This is probably key
 cv2.imshow("Thresh", thresh)
-cv2.waitKey(0)
+cv2.waitKey(3000)
 
 # find contours in the thresholded image
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -52,12 +52,12 @@ for c in cnts:
 	c = c.astype("float")
 	c *= ratio
 	c = c.astype("int")
-	cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
+	cv2.drawContours(image4, [c], -1, (0, 255, 0), 2)
 	perimeter = cv2.arcLength(c,True)
 	area = cv2.contourArea(c)
 	print(f"This is the perimeter of the print: {perimeter}cm")
 	print(f"This is the area of the print: {area}cm")
 
 	# show the output image
-	cv2.imshow("Image", image)
+	cv2.imshow("Image", image4)
 	cv2.waitKey(0)
