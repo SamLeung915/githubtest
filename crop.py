@@ -1,6 +1,6 @@
 from PIL import Image 
 
-im = Image.open('Chicken.jpg')
+im = Image.open('frame_2.jpg')
 width, height = im.size
 
 print('Width', width)
