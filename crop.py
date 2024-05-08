@@ -6,7 +6,7 @@ current_directory = os.getcwd()
 output_folder = "out"
 out_path = os.path.join(current_directory, output_folder)
 
-folder_name = "cube"
+folder_name = "image"
 folder_path = os.path.join(current_directory, folder_name)
 os.chdir(folder_path)
 
