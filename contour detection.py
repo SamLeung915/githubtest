@@ -26,7 +26,7 @@ ratio = image4.shape[0] / float(resized.shape[0])
 # and threshold it
 gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
 cv2.imshow("Grayed", gray)
-cv2.waitKey(3000)
+cv2.waitKey(3000) # This just gives time delays, 0 waits for input, any other number is time delay in miliseconds
 blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 #thresh = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)[1]
                                 #This is a threshold value i.e, any pixel that has colour value above this value will be made into the specified pixel colour (value to the right)
@@ -55,8 +55,8 @@ for c in cnts:
 	cv2.drawContours(image4, [c], -1, (0, 255, 0), 2)
 	perimeter = cv2.arcLength(c,True)
 	area = cv2.contourArea(c)
-	print(f"This is the perimeter of the print: {perimeter}cm")
-	print(f"This is the area of the print: {area}cm")
+	print(f"This is the perimeter of the print: {perimeter}")
+	print(f"This is the area of the print: {area}")
 
 	# show the output image
 	cv2.imshow("Image", image4)
